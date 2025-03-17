@@ -5,14 +5,14 @@ import pandas as pd
 import plotly.express as px
 from supabase import create_client, Client
 
-# Carregar as variáveis de ambiente do arquivo .env
+# Carrega as variáveis de ambiente do arquivo .env
 load_dotenv()
 
-# Ler as credenciais do Supabase a partir das variáveis de ambiente
+# Le as credênciais do supabase a partir das variáveis de ambiente
 SUPABASE_URL = os.getenv('SUPABASE_URL')
 SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 
-# Verifique se as variáveis de ambiente foram carregadas corretamente
+# Verifica se as variáveis de ambiente foram carregadas corretamente
 if not SUPABASE_URL or not SUPABASE_KEY:
     st.error("As credenciais do Supabase não foram encontradas. Verifique as variáveis de ambiente.")
 else:
@@ -35,7 +35,7 @@ else:
     st.title("Dados de Temperatura IoT")
     st.write(df)
 
-    # Convertemos a coluna de data para formato datetime
+    # Converção da coluna de data para formato datetime
     df['noted_date'] = pd.to_datetime(df['noted_date'])
 
     # Gráfico 1: Temperatura ao longo do tempo
